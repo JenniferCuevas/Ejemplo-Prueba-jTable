@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="panel panel-body" style="min-height:256px">
+    <div class="col-md-3">
+        @{ Html.RenderAction("SideMenu", "Home");}
+    </div>
+   
+    <div class="col-md-9">
+        <table class="display" id="MyDataTable">
+            <thead>
+                <th>
+                EmployeeName
+                </th>
+                <th>
+                Department
+                </th>
+                <th>
+                Salary
+                </th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>CSE</td>
+                    <td>52000</td>
+                </tr>
+
+                <tr>
+                    <td>Sara</td>
+                    <td>CE</td>
+                    <td>53000</td>
+                </tr>
+
+                <tr>
+                    <td>Michell</td>
+                    <td>CSE</td>
+                    <td>51000</td>
+                </tr>
+                <tr>
+                    <td>Carmen</td>
+                    <td>CE</td>
+                    <td>56000</td>
+                </tr>
+
+                <tr>
+                    <td>Joaquin</td>
+                    <td>CSE</td>
+                    <td>52000</td>
+                </tr>
+
+                <tr>
+                    <td>Martin</td>
+                    <td>CSE</td>
+                    <td>52000</td>
+                </tr>
+
+                <tr>
+                    <td>Carolina</td>
+                    <td>CE</td>
+                    <td>53000</td>
+                </tr>
+
+                <tr>
+                    <td>Marina</td>
+                    <td>CE</td>
+                    <td>52000</td>
+                </tr>
+
+                <tr>
+                    <td>John</td>
+                    <td>CSE</td>
+                    <td>52000</td>
+                </tr>
+
+                <tr>
+                    <td>John</td>
+                    <td>CSE</td>
+                    <td>52000</td>
+                </tr>
+               </tbody>
+        </table>
+    </div>
+
+<script>
+
+    //No da formato a la tabla
+    $(document).ready(function () {
+        $("#MyDataTable").DataTable();
+    })
+
+
+</script>
+    </div>
