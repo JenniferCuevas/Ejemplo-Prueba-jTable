@@ -10,77 +10,26 @@
     <div class="col-md-9">
         <table class="display" id="MyDataTable">
             <thead>
-                <th>
-                EmployeeName
-                </th>
-                <th>
-                Department
-                </th>
-                <th>
-                Salary
-                </th>
+                <tr>
+                    <th>
+                        EmployeeName
+                    </th>
+                    <th>
+                        Department
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        EmployeeId
+                    </th>
+                </tr>
             </thead>
-
             <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>CSE</td>
-                    <td>52000</td>
-                </tr>
 
-                <tr>
-                    <td>Sara</td>
-                    <td>CE</td>
-                    <td>53000</td>
-                </tr>
 
-                <tr>
-                    <td>Michell</td>
-                    <td>CSE</td>
-                    <td>51000</td>
-                </tr>
-                <tr>
-                    <td>Carmen</td>
-                    <td>CE</td>
-                    <td>56000</td>
-                </tr>
-
-                <tr>
-                    <td>Joaquin</td>
-                    <td>CSE</td>
-                    <td>52000</td>
-                </tr>
-
-                <tr>
-                    <td>Martin</td>
-                    <td>CSE</td>
-                    <td>52000</td>
-                </tr>
-
-                <tr>
-                    <td>Carolina</td>
-                    <td>CE</td>
-                    <td>53000</td>
-                </tr>
-
-                <tr>
-                    <td>Marina</td>
-                    <td>CE</td>
-                    <td>52000</td>
-                </tr>
-
-                <tr>
-                    <td>John</td>
-                    <td>CSE</td>
-                    <td>52000</td>
-                </tr>
-
-                <tr>
-                    <td>John</td>
-                    <td>CSE</td>
-                    <td>52000</td>
-                </tr>
-               </tbody>
+            </tbody>
+            
         </table>
     </div>
 
@@ -88,9 +37,29 @@
 
     //No da formato a la tabla
     $(document).ready(function () {
-        $("#MyDataTable").DataTable();
+        //$("#MyDataTable").DataTable();
+        GetEmployeeRecord();
     })
-
+    var GetEmployeeRecord = function () {
+        $.ajax({
+            type: "Get",
+            url: "/Home/GetEmployeeRecord",
+            success: function (response) {
+                BindDataTable(response);
+            }
+        })
+    }
+    var BindDataTable = function (response) {
+        $("#MyDataTable").DataTable({
+            "aadata": response,
+            "aoColumn": [
+                { "mData": "Name" },
+                { "mData": "DepartamentName" },
+                { "mData": "Address" },
+                { "mData": "EmployeeId" }
+            ]
+        });
+    }
 
 </script>
-    </div>
+    
